@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "keyboard-trigger"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple Python tool to send triggers with keypress"
 readme = "README.md"
 requires-python = ">=3.13"
@@ -14,7 +14,8 @@ authors = [
 ]
 dependencies = [
   "pynput>=1.8.1",
-  "stimuli>=1.1.0"
+  "stimuli>=1.1.0",
+  "pyserial>=3.5"
 ]
 
 [tool.setuptools.packages.find]
