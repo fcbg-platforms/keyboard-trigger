@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keyboard-trigger"
+version = "0.1.0"
+description = "A simple Python tool to send triggers with keypress"
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "GPL" }
+authors = [
+  { name = "Gwenael Birot", email = "gbirot@gmail.com" }
+]
+dependencies = [
+  "pynput>=1.8.1",
+  "stimuli>=1.1.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
