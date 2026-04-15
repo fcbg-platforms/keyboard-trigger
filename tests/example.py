@@ -1,4 +1,4 @@
-from logger import KeyboardTrigger
+from keyboard_trigger import KeyboardTrigger
 
     
 key_to_trigger_mapping = {'1': 1,
