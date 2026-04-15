@@ -2,18 +2,32 @@ from datetime import datetime
 from pynput import keyboard
 import csv
 from stimuli.trigger import ParallelPortTrigger
+from typing import Literal
 
 class KeyboardTrigger():
-    
-    def __init__(self, key_mapping,
-                 key_start='space',
-                 key_stop='esc',
-                 suppress_propagation=False,
-                 trigger_port_type = None,
-                 trigger_port_address = None,
-                 logfile = 'logs.csv',
-                 verbose = True
-                 ):
+    """
+   Send trigger on key press.
+
+   Attributes:
+       key_mapping: mapping of keys to trigger values (1-255)
+       key_start: key to press to start sending the triggers
+       key_stop: key to press to close the program
+       suppress_propagation: if True the keypress event does not propagate to the system keypress event handler
+       trigger_port_type: device triggers are sent with. "arduino" for ardiuno device; "lpt" for parallel port; None if no trigger
+       trigger_port_address: address of the arduino serial port or of the parallel port
+       logfile: logs file name
+       verbose: if True, print keypresses and triggers sent in console
+       
+   """
+    def __init__(self, key_mapping: dict[str, int],
+                 key_start: str = 'space',
+                 key_stop: str ='esc',
+                 suppress_propagation: bool = False,
+                 trigger_port_type: Literal["arduino", "lpt"] | None = None,
+                 trigger_port_address: str | None = None,
+                 logfile: str | None = 'logs.csv',
+                 verbose: bool = True
+                 ) -> None:
         self._key_mapping = key_mapping
         self._key_start = key_start
         self._key_stop = key_stop
@@ -37,7 +51,7 @@ class KeyboardTrigger():
         else:
             self._trigger = None
         
-    def _normalize_key(self,key):
+    def _normalize_key(self, key):
         try:
             return key.char.lower() if key.char else None
         except AttributeError:
@@ -91,7 +105,7 @@ class KeyboardTrigger():
             self._trigger.close()
         
     
-    def start(self):
+    def start(self) -> None:
         
         print(f'Press {self._key_start} key to start logging.')
         print(f'Press {self._key_stop} to stop logging.')
