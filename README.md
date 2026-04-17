@@ -31,12 +31,12 @@ key_to_trigger_mapping = {'1': 1,
 
 # init
 kb_trigger = KeyboardTrigger(key_to_trigger_mapping,
-                             key_start='space',
-                             key_stop='esc',
-                             suppress_propagation=True,
+                             key_start='space', # press space to start
+                             key_stop='esc', # press escape to stop
+                             suppress_propagation=False,
                              trigger_port_type = 'arduino',
                              trigger_port_address = 'COM3',
-                             logfile = 'logs.csv',
+                             logfile = 'logs.csv', # log file
                              verbose = True
                              )
 
