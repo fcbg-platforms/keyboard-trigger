@@ -1,7 +1,7 @@
 # keyboard-trigger
 A simple python package to send triggers with key press
 
-# Example
+# Usage
 
 ```python
 from keyboard_trigger import KeyboardTrigger
