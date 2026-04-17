@@ -1,12 +1,20 @@
 # keyboard-trigger
 A simple python package to send triggers with key press
 
-# Usage
+## Installation
+
+Install with pip (requires git to be installed):
+
+```bash
+pip install git+https://github.com/fcbg-platforms/keyboard-trigger.git
+```
+
+## Usage
 
 ```python
 from keyboard_trigger import KeyboardTrigger
 
-    
+# mapping of keys to trigger values
 key_to_trigger_mapping = {'1': 1,
                           '2': 2,
                           '3': 3,
@@ -21,6 +29,7 @@ key_to_trigger_mapping = {'1': 1,
                           'esc': 101
                           }
 
+# init
 kb_trigger = KeyboardTrigger(key_to_trigger_mapping,
                              key_start='space',
                              key_stop='esc',
@@ -31,5 +40,6 @@ kb_trigger = KeyboardTrigger(key_to_trigger_mapping,
                              verbose = True
                              )
 
+# start
 kb_trigger.start()
 ```
